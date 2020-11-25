@@ -1,6 +1,15 @@
 <template>
-  <div class="home">
-    <div id="topology-canvas"></div>
+  <div class="workspace">
+    <el-container class="container">
+      <el-header></el-header>
+      <el-container>
+        <el-aside></el-aside>
+        <el-main>
+          <div id="topology-canvas"></div>
+        </el-main>
+        <el-aside></el-aside>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
@@ -12,10 +21,10 @@ import { register as registerActivity } from '@topology/activity-diagram'
 import { register as registerClass } from '@topology/class-diagram'
 import { register as registerSequence } from '@topology/sequence-diagram'
 import { register as registerChart } from '@topology/chart-diagram'
-const topologyData = require('@/assets/data.json')
+// const topologyData = require('@/assets/data.json')
 
 export default {
-  name: 'Home',
+  name: 'Workspace',
   components: {},
   data () {
     return {
@@ -39,26 +48,25 @@ export default {
     }
   },
   watch: {
-    topologyData () {
-      this.canvas.render()
-    }
   },
   created () {
     this.canvasRegister()
   },
   mounted () {
     this.canvas = new Topology('topology-canvas', this.canvasOptions)
-    topologyData.locked = 1
-    this.canvas.open(topologyData)
     console.log(this.canvas)
   }
 }
 </script>
 
 <style lang="scss">
-.home {
+.workspace {
   width: 100%;
   height: 100%;
+  .container {
+    width: 100%;
+    height: 100%;
+  }
   #topology-canvas {
     width: 100%;
     height: 100%;
