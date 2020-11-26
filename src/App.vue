@@ -11,14 +11,11 @@ html, body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-}
-
 #app {
   width: 100%;
   height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
