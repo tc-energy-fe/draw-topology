@@ -22,7 +22,7 @@ import { canvasRegister } from '@/utils/canvas'
 let canvas
 const canvasOptions = {
   on: (event, data) => {
-    console.info(event, data)
+    // console.info(event, data)
   }
 }
 
@@ -49,8 +49,8 @@ export default {
       rect: {
         x: 200,
         y: 300,
-        width: 200,
-        height: 200
+        width: 100,
+        height: 100
       }
     })
     console.log(canvas)
