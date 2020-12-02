@@ -2,7 +2,7 @@
 
 export function circuitGround (ctx, node) {
   const rect = node.rect
-  ctx.lineWidth = 2
+  // ctx.lineWidth = 3
   ctx.beginPath()
   ctx.moveTo(rect.x + rect.width / 2, rect.y)
   ctx.lineTo(rect.x + rect.width / 2, rect.y + 70)
@@ -17,4 +17,5 @@ export function circuitGround (ctx, node) {
     ctx.fill()
   }
   ctx.stroke()
+  // console.log(node)
 }

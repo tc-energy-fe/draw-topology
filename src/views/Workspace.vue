@@ -23,7 +23,8 @@ let canvas
 const canvasOptions = {
   on: (event, data) => {
     // console.info(event, data)
-  }
+  },
+  rotateCursor: 'grab'
 }
 
 export default {
@@ -51,9 +52,31 @@ export default {
         y: 300,
         width: 100,
         height: 100
-      }
+      },
+      lineWidth: 3,
+      data: {
+        isOn: false
+      },
+      events: [{
+        type: 0,
+        action: 2,
+        value: `pen.data.isOn = !pen.data.isOn;
+        console.log(pen.data);topology.render();`
+      }]
     })
-    console.log(canvas)
+    canvas.addNode({
+      name: 'image',
+      rect: {
+        x: 500,
+        y: 500,
+        width: 200,
+        height: 200
+      },
+      iconFamily: 'iconfont',
+      icon: '\ue614'
+    })
+    // canvas.lock(1)
+    console.log(canvas.data)
   }
 }
 </script>
