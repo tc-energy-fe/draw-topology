@@ -1,7 +1,13 @@
 <template>
   <div class="workspace">
     <el-container class="container">
-      <el-header class="container-header"></el-header>
+      <el-header class="container-header">
+        <div class="function-block">
+          <el-button :type="isLocked ? 'warning' : 'primary'" @click="lockClick" :icon="isLocked ? 'el-icon-unlock' : 'el-icon-lock'">
+            {{isLocked ? '解锁' : '锁定'}}
+          </el-button>
+        </div>
+      </el-header>
       <el-container>
         <el-aside class="aside-left"></el-aside>
         <el-main class="container-main">
@@ -32,11 +38,20 @@ export default {
   components: {},
   data () {
     return {
+      isLocked: false
     }
   },
   computed: {
   },
   methods: {
+    lockClick () {
+      if (this.isLocked) {
+        canvas.lock(0)
+      } else {
+        canvas.lock(1)
+      }
+      this.isLocked = !this.isLocked
+    }
   },
   watch: {
   },
@@ -75,8 +90,9 @@ export default {
       iconFamily: 'iconfont',
       icon: '\ue614'
     })
-    // canvas.lock(1)
+    canvas.data.lineName = 'line'
     console.log(canvas.data)
+    canvas.render()
   }
 }
 </script>
@@ -89,8 +105,20 @@ export default {
     width: 100%;
     height: 100%;
     &-header {
-      background-color: #ece3e3;
+      // background-color: #ece3e3;
       border-bottom: 1px solid #bebebe;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .function-block {
+        margin-left: auto;
+        > * {
+          margin-right: 1rem;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
     }
     &-main {
       padding: 0;
