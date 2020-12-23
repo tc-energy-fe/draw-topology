@@ -2,14 +2,48 @@
   <div class="workspace">
     <el-container class="container">
       <el-header class="container-header">
+        <el-menu mode="horizontal">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-folder"></i>
+              <span>文件</span>
+            </template>
+            <el-menu-item>新建文件</el-menu-item>
+            <el-menu-item>保存JSON</el-menu-item>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-edit"></i>
+              <span>编辑</span>
+            </template>
+            <el-menu-item>撤销</el-menu-item>
+          </el-submenu>
+        </el-menu>
         <div class="function-block">
-          <el-button :type="isLocked ? 'warning' : 'primary'" @click="lockClick" :icon="isLocked ? 'el-icon-unlock' : 'el-icon-lock'">
+          <el-button :type="isLocked ? 'warning' : 'primary'" @click="lockClick"
+            :icon="isLocked ? 'el-icon-unlock' : 'el-icon-lock'">
             {{isLocked ? '解锁' : '锁定'}}
           </el-button>
         </div>
       </el-header>
       <el-container>
-        <el-aside class="aside-left"></el-aside>
+        <el-aside class="aside-left">
+          <div class="diagram-container">
+            <div class="diagram-group" v-for="(group, gIndex) of iconList" :key="gIndex">
+              <h4 class="diagram-group__title">{{group.groupName}}</h4>
+              <div class="diagram-group__division"></div>
+              <div class="diagram-group__list">
+                <i v-for="(diagram, dIndex) of group.children"
+                  :key="dIndex"
+                  :title="diagram.name"
+                  :class="`t-icon ${diagram.iconClass}`"
+                  :draggable="diagram.data"
+                  @dragstart="onDrag($event, diagram)"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </el-aside>
         <el-main class="container-main">
           <div id="topology-canvas"></div>
         </el-main>
@@ -22,7 +56,7 @@
 <script>
 // @ is an alias to /src
 import { Topology } from '@topology/core'
-import { canvasRegister } from '@/utils/canvas'
+import { canvasRegister, iconList } from '@/utils/canvas'
 // const topologyData = require('@/assets/data.json')
 
 let canvas
@@ -38,7 +72,8 @@ export default {
   components: {},
   data () {
     return {
-      isLocked: false
+      isLocked: false,
+      iconList
     }
   },
   computed: {
@@ -48,9 +83,12 @@ export default {
       if (this.isLocked) {
         canvas.lock(0)
       } else {
-        canvas.lock(1)
+        canvas.lock(2)
       }
       this.isLocked = !this.isLocked
+    },
+    onDrag (event, node) {
+      event.dataTransfer.setData('Topology', JSON.stringify(node.data))
     }
   },
   watch: {
@@ -97,45 +135,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.workspace {
-  width: 100%;
-  height: 100%;
-  .container {
-    width: 100%;
-    height: 100%;
-    &-header {
-      // background-color: #ece3e3;
-      border-bottom: 1px solid #bebebe;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      .function-block {
-        margin-left: auto;
-        > * {
-          margin-right: 1rem;
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-    }
-    &-main {
-      padding: 0;
-    }
-    .aside-left {
-      background-color: #ece3e3;
-      border-right: 1px solid #bebebe;
-    }
-
-    .aside-right {
-      background-color: #ece3e3;
-      border-left: 1px solid #bebebe;
-    }
-    #topology-canvas {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-</style>
+<style lang="scss" src="./Workspace.scss"></style>
