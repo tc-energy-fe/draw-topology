@@ -8,8 +8,8 @@
               <i class="el-icon-folder"></i>
               <span>文件</span>
             </template>
-            <el-menu-item>新建文件</el-menu-item>
-            <el-menu-item>保存JSON</el-menu-item>
+            <el-menu-item @click="handleNew">新建文件</el-menu-item>
+            <el-menu-item @click="handleImport">导入JSON</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
@@ -27,7 +27,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside class="aside-left">
+        <el-aside class="aside-left" v-if="false">
           <div class="diagram-container">
             <div class="diagram-group" v-for="(group, gIndex) of iconList" :key="gIndex">
               <h4 class="diagram-group__title">{{group.groupName}}</h4>
@@ -47,7 +47,7 @@
         <el-main class="container-main">
           <div id="topology-canvas"></div>
         </el-main>
-        <el-aside class="aside-right"></el-aside>
+        <el-aside class="aside-right" v-if="false"></el-aside>
       </el-container>
     </el-container>
   </div>
@@ -72,13 +72,39 @@ export default {
   components: {},
   data () {
     return {
-      isLocked: false,
+      isLocked: true,
       iconList
     }
   },
   computed: {
   },
   methods: {
+    handleNew () {
+      canvas.open()
+    },
+    handleImport () {
+      const input = document.createElement('input')
+      input.type = 'file'
+      input.accept = '.json'
+      input.onchange = event => {
+        const elem = event.srcElement || event.target
+        if (elem.files && elem.files[0]) {
+          // const name = elem.files[0].name.replace('.json', '')
+          const reader = new FileReader()
+          reader.onload = e => {
+            const text = e.target.result + ''
+            try {
+              const data = JSON.parse(text)
+              canvas.open(data)
+            } catch (e) {
+              return false
+            }
+          }
+          reader.readAsText(elem.files[0])
+        }
+      }
+      input.click()
+    },
     lockClick () {
       if (this.isLocked) {
         canvas.lock(0)
@@ -98,38 +124,8 @@ export default {
   },
   mounted () {
     canvas = new Topology('topology-canvas', canvasOptions)
-    canvas.addNode({
-      name: 'circuitGround',
-      rect: {
-        x: 200,
-        y: 300,
-        width: 100,
-        height: 100
-      },
-      lineWidth: 3,
-      data: {
-        isOn: false
-      },
-      events: [{
-        type: 0,
-        action: 2,
-        value: `pen.data.isOn = !pen.data.isOn;
-        console.log(pen.data);topology.render();`
-      }]
-    })
-    canvas.addNode({
-      name: 'image',
-      rect: {
-        x: 500,
-        y: 500,
-        width: 200,
-        height: 200
-      },
-      iconFamily: 'iconfont',
-      icon: '\ue614'
-    })
     canvas.data.lineName = 'line'
-    console.log(canvas.data)
+    canvas.lock(this.isLocked ? 2 : 0)
     canvas.render()
   }
 }

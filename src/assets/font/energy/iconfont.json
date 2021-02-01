@@ -1,0 +1,163 @@
+{
+  "id": "444910",
+  "name": "能源项目基础图标库",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "那个人好像一条狗。",
+  "glyphs": [
+    {
+      "icon_id": "6869998",
+      "name": "任务",
+      "font_class": "nav_icon_task",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4891650",
+      "name": "监控",
+      "font_class": "jiankong",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "9980426",
+      "name": "运行",
+      "font_class": "nav_icon_function_n",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "12855634",
+      "name": "login_icon_password",
+      "font_class": "login_icon_password",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "12855635",
+      "name": "login_icon_user",
+      "font_class": "login_icon_user",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "12828497",
+      "name": "content_icon_gateway",
+      "font_class": "content_icon_gateway",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "12828325",
+      "name": "content_icon_meter",
+      "font_class": "content_icon_meter",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "12424482",
+      "name": "tab_icon_histogram",
+      "font_class": "tab_icon_histogram",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "12424483",
+      "name": "tab_icon_table",
+      "font_class": "tab_icon_table",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "12209214",
+      "name": "nav_icon_setting_n",
+      "font_class": "nav_icon_system",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "12209144",
+      "name": "nav_icon_monitor_n",
+      "font_class": "nav_icon_status",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "12185996",
+      "name": "nav_icon_overview_n",
+      "font_class": "nav_icon_home",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12185625",
+      "name": "content_icon_search",
+      "font_class": "content_icon_search",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12185626",
+      "name": "nav_icon_drop",
+      "font_class": "nav_icon_drop",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "12185627",
+      "name": "nav_icon_cost_n",
+      "font_class": "nav_icon_charge",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "12185629",
+      "name": "nav_icon_alarm_n",
+      "font_class": "nav_icon_warn",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12185631",
+      "name": "nav_icon_report_n",
+      "font_class": "nav_icon_resource",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "12185632",
+      "name": "nav_icon_basicsetting_n",
+      "font_class": "nav_icon_config",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "12185634",
+      "name": "nav_icon_data_n",
+      "font_class": "nav_icon_statement",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "12185635",
+      "name": "notice_icon_close",
+      "font_class": "notice_icon_close",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "12185620",
+      "name": "content_icon_required",
+      "font_class": "content_icon_required",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12133878",
+      "name": "tab_icon_fold",
+      "font_class": "tab_icon_fold",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

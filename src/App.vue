@@ -4,6 +4,7 @@
   </div>
 </template>
 
+<style src="./assets/font/energy/iconfont.css"></style>
 <style src="./assets/normalize.css"></style>
 <style lang="scss">
 html, body {

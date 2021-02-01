@@ -964,9 +964,9 @@
   integrity sha512-J+qKEg/+3EyyZotP2TbZtM+NcOeRh2PIEwzBZGS6KOU5RvBi4NMRO2DQNN++q8Zpb7RG7WYGAaTB2H4+YcXJzA==
 
 "@topology/core@^0.3.8":
-  version "0.3.26"
-  resolved "https://registry.npmjs.org/@topology/core/-/core-0.3.26.tgz#67a38946e02495c312d5f66fd6b9032465456dee"
-  integrity sha512-gY3D8ACEQHH/kdnAgaKlE5k9KtAg5hBe1o3ksmLs/OrUxhzCMLVxIQdglHKVBRv4TKRqObEp07Dxq/6wH0kXHA==
+  version "0.3.28"
+  resolved "https://registry.npmjs.org/@topology/core/-/core-0.3.28.tgz#862c4805a055db8d508fd9b86b7cc0ec74e7fb93"
+  integrity sha512-LfrVxF9vphCupkgqZy59aP5y6cS8TsjINAAO5VvaLzx+tsFDaU7/4MPwkKnoIHtqmtdTvNEH8cDJitSOthxpPA==
   dependencies:
     le5le-store "^1.0.7"
     mitt "^2.1.0"
